@@ -20,8 +20,8 @@
         <input type="number" min="2" id="input2" required>
         &nbsp;&nbsp;
         <button onclick="start()">Start</button>
-    </center> -->
-    <!-- <br>
+    </center> 
+     <br>
     <div id="matrix-container" class="hidden">
         <div class="matrix" id="matrix1"></div>
         + 
@@ -117,108 +117,6 @@
             });
         }
 </script>
-
-<!-- <h1>Matrix Calculator</h1>
-<h3>Enter same size</h3>
-<input type="number" min="2" id="input1" required>
-&nbsp; X &nbsp;
-<input type="number" min="2" id="input2" required>
-&nbsp;&nbsp;
-<button onclick="start()">start</button>
-<br>
-<div id="matrix-container"></div>
-<div class="matrix" id="matrix1"></div>
-+
-<div class="matrix" id="matrix2"></div>
-<button onclick="calculate('sum')">sum</button>
-<button onclick="calculate('subtract')">subtract</button>
-<button onclick="calculate('multiply')">multiply</button>
-<div style="color: red;">Result: <span id="result"></span></div>
-</div>
-
-<script>
-    function start() {
-        const row = document.getElementById("input1").value;
-        const col = document.getElementById("input2").value;
-        if (row !== col) {
-            alert("please enter the same number in both inputs")
-            return;
-            
-        }
-        
-            // Clear previous matrices
-            document.getElementById('matrix1').innerHTML = '';
-            document.getElementById('matrix2').innerHTML = '';
-            document.getElementById('result').innerText = '';
-
-        // Create matrix input fields 
-        for (let i = 0; i < row; i++) {
-          for (let j = 0; j < col; j++)  {
-            document.getElementById("matrix1").innerHTML += `<input type 'number' id="m1-${i}-${j}" value="0" min="0" max="100"> `;     
-            document.getElementById("matrix2").innerHTML += `<input type="number" id="m2-${i}-${j}" value="0" min="0" max="100"> `;  
-
-            
-        }
-        document.getElementById("matrix1").innerHTML += '<br>'
-        document.getElementById("matrix2").innerHTML +=  '<br>'
-    
-    }
-    document.getElementById('matrix-container');
-}
-function calculate(operation) {
-    const matrix1 = getMatrixValues('m1').value;
-    const matrix2 = getMatrixValues('m2').value;
-    let result;
-if (operation === sum) {
-    result = operateMatrices(matrix1, matrix2, (a, b) => a + b);
-            } else if (operation === 'subtract') {
-                result = operateMatrices(matrix1, matrix2, (a, b) => a - b);
-            } else if (operation === 'multiply') {
-                result = multiplyMatrices(matrix1, matrix2);
-            }
-            displayResult(result)
-}
-function getMatrixValues(prefix) {
-            const matrix = [];
-            const inputs = document.querySelectorAll(`input[id^="${prefix}-"]`);
-            inputs.forEach(input => {
-                const [i, j] = input.id.split('-').slice(1).map(Number);
-                if (!matrix[i]) matrix[i] = [];
-                matrix[i][j] = +input.value;
-            });
-            return matrix;
-        }
-
-        function operateMatrices(a, b, operation) {
-            return a.map((row, i) => row.map((val, j) => operation(val, b[i][j])));
-        }
-
-        function multiplyMatrices(a, b) {
-            const rowsA = a.length;
-            const colsA = a[0].length;
-            const colsB = b[0].length;
-            const result = Array.from({ length: rowsA }, () => Array(colsB).fill(0));
-
-            for (let i = 0; i < rowsA; i++) {
-                for (let j = 0; j < colsB; j++) {
-                    for (let k = 0; k < colsA; k++) {
-                        result[i][j] += a[i][k] * b[k][j];
-                    }
-                }
-            }
-            return result;
-        }
-
-
-        function displayResult(matrix) {
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = '';
-
-            matrix.forEach(row => {
-                resultDiv.innerHTML += row.join(' ') + '<br>';
-            });
-        }
-</script> -->
 
 </body>
 </html>
